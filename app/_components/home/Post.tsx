@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardContent,
@@ -7,10 +9,17 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ExternalLink, Tags } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Post() {
+  const router = useRouter();
+
+  const goToPostDetail = () => {
+    router.push("/1");
+  };
+
   return (
-    <Card>
+    <Card onClick={goToPostDetail}>
       <CardHeader>
         <div className="flex justify-between mb-3">
           <span className="text-sm ">회사명</span>
@@ -22,7 +31,7 @@ export default function Post() {
         <CardTitle>글 제목</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-muted-foreground">글 내용</p>
+        <p className="text-sm text-muted-foreground">글 요약</p>
       </CardContent>
       <CardFooter>
         <div className="flex justify-between w-full">

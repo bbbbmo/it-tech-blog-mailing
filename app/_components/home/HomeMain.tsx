@@ -4,8 +4,10 @@ import { Search } from "lucide-react";
 import Post from "./Post";
 
 export default function HomeMain() {
+  const tags = ["FE", "BE", "AI", "DevOps", "ETC"];
+
   return (
-    <main className="h-full w-full p-20 flex flex-col gap-20 ">
+    <main className="flex-1 w-full p-20 flex flex-col gap-20">
       <section className="flex flex-col items-center justify-center gap-4">
         <h1 className="text-4xl font-bold">
           최신 IT 기술 블로그를
@@ -31,11 +33,11 @@ export default function HomeMain() {
           </div>
 
           <div className="flex gap-2">
-            <Button size="lg">FE</Button>
-            <Button size="lg">BE</Button>
-            <Button size="lg">AI</Button>
-            <Button size="lg">DevOps</Button>
-            <Button size="lg">ETC</Button>
+            {tags.map((tag) => (
+              <Button key={tag} size="lg">
+                {tag}
+              </Button>
+            ))}
           </div>
         </section>
 
